@@ -1,3 +1,22 @@
+import requests
+from bs4 import BeautifulSoup
+
+url = 'https://www.q8.dk/priser/'
+response = requests.get(url)
+
+soup = BeautifulSoup(response.content, 'html.parser')
+
+fuels = soup.find_all('div', class_='crate prices')
+
+for fuel in fuels:
+    fuel_type = fuel.find('span', class_='display-name').text.strip()
+    price = fuel.find('div', class_='price').text.strip()
+    price = price.replace(' kr./l', '').replace(' ', '')
+    print(f'{fuel_type}: {price}')
+
+#Skal have lavet koden så den ændre , til .
+
+
 # Mitsubishi Outlander 2020 PHEV
 # It drives around 14.5 km per liter gasoline
 # Average reach on the battery around 37 km on a full battery charge 13.8 kwh
