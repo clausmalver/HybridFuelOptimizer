@@ -1,8 +1,8 @@
 # Mitsubishi Outlander 2020 PHEV
-# It drives around 13.5 km per liter gasoline
+# It drives around 14.5 km per liter gasoline
 # Average reach on the battery around 37 km on a full battery charge 13.8 kwh
 
-km_per_liter = 13.5
+km_per_liter = 14.5
 km_per_kwh = 2.68
 
 gas_price = float(input("What is the current gasoline price in DKK (kr/l): "))
