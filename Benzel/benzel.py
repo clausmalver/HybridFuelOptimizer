@@ -13,7 +13,7 @@ for fuel in fuels:
     gas_price = fuel.find('div', class_='price').text.strip()
     # Remove the text scrape, random spaces and replace ',' with '.'
     gas_price = gas_price.replace(' kr./l', '').replace(' ', '').replace(',','.')
-    print(f'{fuel_type}: {gas_price}')
+    print("The current gasoline price per liter for the fuel type " + f'{fuel_type}'+ " is " f'{gas_price}')
 
 # Mitsubishi Outlander 2020 PHEV
 # It drives around 14.5 km per liter gasoline
