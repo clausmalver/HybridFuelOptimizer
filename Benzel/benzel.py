@@ -10,12 +10,10 @@ fuels = soup.find_all('div', class_='crate prices')
 
 for fuel in fuels:
     fuel_type = fuel.find('span', class_='display-name').text.strip()
-    price = fuel.find('div', class_='price').text.strip()
-    price = price.replace(' kr./l', '').replace(' ', '')
-    print(f'{fuel_type}: {price}')
-
-#Skal have lavet koden så den ændre , til .
-
+    gas_price = fuel.find('div', class_='price').text.strip()
+    # Remove the text scrape, random spaces and replace ',' with '.'
+    gas_price = gas_price.replace(' kr./l', '').replace(' ', '').replace(',','.')
+    print(f'{fuel_type}: {gas_price}')
 
 # Mitsubishi Outlander 2020 PHEV
 # It drives around 14.5 km per liter gasoline
@@ -24,7 +22,8 @@ for fuel in fuels:
 km_per_liter = 14.5
 km_per_kwh = 2.68
 
-gas_price = float(input("What is the current gasoline price in DKK (kr/l): "))
+# Change the gas_price variable string to float, to make calculations happen.
+gas_price = float(gas_price)
 el_price = float(input("What is the current electricity price in DKK (kr/kWh): "))
 
 gas_price_per_km = gas_price / km_per_liter
